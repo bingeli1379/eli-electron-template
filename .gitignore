@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+dist-electron
 coverage
 *.local
 
@@ -27,3 +28,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# release
+/release
