@@ -20,7 +20,7 @@ pnpm dev
 pnpm build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint with ESLint, Stylelint, Prettier
 
 ```sh
 pnpm lint
