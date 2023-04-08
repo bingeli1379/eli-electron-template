@@ -1,8 +1,19 @@
 /* eslint-env node */
 
 import { app, BrowserWindow } from 'electron'
+import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
-app.whenReady().then(() => {
+const isDevelopment = process.env.NODE_ENV === 'development'
+
+app.whenReady().then(async () => {
+  if (isDevelopment) {
+    try {
+      await installExtension(VUEJS_DEVTOOLS)
+    } catch (e) {
+      console.error('Vue Devtools failed to install:', e.toString())
+    }
+  }
+
   const win = new BrowserWindow({
     title: 'Electron Template'
   })
