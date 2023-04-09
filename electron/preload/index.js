@@ -3,7 +3,7 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 const electronApi = {
-  sendEvent: event => ipcRenderer.send(event)
+  ipcRenderer
 }
 
 if (process.contextIsolated) {

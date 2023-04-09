@@ -4,6 +4,10 @@ import { app, BrowserWindow } from 'electron'
 import { join } from 'path'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
+import './message'
+
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 app.whenReady().then(async () => {
@@ -28,7 +32,10 @@ app.whenReady().then(async () => {
 
 async function createWindow() {
   const mainWindow = new BrowserWindow({
-    title: 'Electron Template'
+    icon: join(__dirname, '../../public/favicon.ico'),
+    webPreferences: {
+      preload: join(__dirname, '../preload/index.js')
+    }
   })
 
   if (process.env.VITE_DEV_SERVER_URL) {
